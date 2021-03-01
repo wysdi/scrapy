@@ -88,7 +88,4 @@ COOKIES_ENABLED = False
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 
-FEED_FORMAT = 'jsonlines'
-FEED_URI = "./json/course.json"
-
 LOG_LEVEL = 'DEBUG'

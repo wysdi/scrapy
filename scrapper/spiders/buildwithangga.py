@@ -7,6 +7,13 @@ class BuildwithanggaSpider(scrapy.Spider):
     allowed_domains = ['buildwithangga.com']
     start_urls = ['https://buildwithangga.com/kelas']
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'scrapper.pipelines.FirestorePipeline': 300,
+        },
+        'FEED_URI': './json/bwa.json'
+    }
+
     def parse(self, response):
         for card in response.xpath('//div[has-class("card-body pb-0")]'):
             # Cleaned Field

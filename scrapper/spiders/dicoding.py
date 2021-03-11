@@ -7,6 +7,13 @@ class DicodingSpider(scrapy.Spider):
     allowed_domains = ['dicoding.com']
     start_urls = ['https://www.dicoding.com/academies/list']
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'scrapper.pipelines.FirestorePipeline': 300,
+        },
+        'FEED_URI': './json/dicoding.json'
+    }
+
     def parse(self, response):
         for card in response.xpath('//div[has-class("cta-to-detail")]'):
             # Cleaned Field
